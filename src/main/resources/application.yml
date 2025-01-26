@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-boot-demo-app-1
+
+server:
+  port: 8082
+
+logging:
+  level:
+    root:
+      info
