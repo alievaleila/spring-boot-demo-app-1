@@ -62,6 +62,7 @@ public class UserService {
         userEntity.setUsername(request.getUsername());
         userEntity.setPassword(request.getPassword());
         UserEntity updatedUserEntity = userRepository.save(userEntity);
+        log.info("User updated: {}", updatedUserEntity);
         return userMapper.toDto(updatedUserEntity);
     }
 
@@ -70,6 +71,8 @@ public class UserService {
                 .map(userEntity -> {
                     userEntity.setStatus(status);
                     UserEntity updatedUserEntity = userRepository.save(userEntity);
+                    log.info("User status updated: to {} for user {}", updatedUserEntity.getStatus(),
+                            updatedUserEntity.getId());
                     return userMapper.toDto(updatedUserEntity);
                 })
                 .orElseThrow(() -> new NotFoundException("User with username " + id + "not found!"));
