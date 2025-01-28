@@ -51,7 +51,7 @@ public class UserService {
     public UserDto findByUsername(String username) {
         return userRepository.findByUsername(username)
                 .map(userMapper::toDto)
-                .orElseThrow(() -> new NotFoundException("User with username " + username + "not found!"));
+                .orElseThrow(() -> new NotFoundException("User with username " + username + " not found!"));
 
 
     }
